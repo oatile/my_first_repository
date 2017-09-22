@@ -1,0 +1,503 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Sep 20 23:25:47 2017
+
+@author: oatileramsay
+"""
+
+"""
+
+Data Bootcamp: Code Practice #1
+Name: Oatile Ramsay
+Date: 22 September 2017
+
+"""
+#%% Question #1
+
+2+5
+
+2 + 5
+
+2*5
+
+2/5
+
+2**5
+
+"""
+First Attempt
+Running this entire segment of code all at once resulted in the number 32.
+Which would be the answer to 2**5.
+
+
+Second Attempt
+I am going to run each line one by one in the IPython console
+Values are as follows:
+
+2+5
+Out[4]: 7
+
+treated as normal arithmetic
+
+2 + 5
+Out[5]: 7
+
+the 'spaces' make no differnce to the code
+
+2*5
+Out[6]: 10
+
+treated as normal arithmetic
+
+2/5
+Out[7]: 0.4
+
+treated as normal arithmetic
+
+2**5
+Out[8]: 32
+
+the '**' is the expression of 'to the power' in python
+
+"""
+
+#%% Question #2
+
+x=7
+
+"""
+This asigns x the value 7. As seen in the value explorer:
+x is a single interger of value 7.
+"""
+
+x=x+3
+print (x)
+
+"""
+This reassigns the value of x to 10. 
+When done in order, python recognizes the x on the left hand side as '7'
+"""
+
+#%% Question 3
+
+x=3
+
+"""
+This assigns 'x' the value 3
+"""
+
+y=x
+
+"""
+This assigns y the value of 'x' which is also '3'
+"""
+
+x=10
+
+"""
+This assigns 'x' the value of 10
+This does not alter the value of y in any way
+"""
+
+#%% Question 4
+
+x=3
+
+"""
+x is assigned the value 3
+"""
+
+x=x/2
+"""
+x is assigned tha value 1.5
+"""
+
+y='abc'
+"""
+y is an expression of the string 'abc'
+"""
+
+z=y+y
+"""
+z is now an expression of 'abcabc'
+The addition works here because it is between two objects of the same type
+"""
+
+print (x,z)
+"""
+This gives the result: 1.5 abcabc
+"""
+"""
+The code runs without error and produces: 1.5 abcabc
+"""
+
+#%% Question 5
+
+x=3
+x=x/2
+y='abc'
+z=x+y
+print(x,z)
+
+"""
+This code does not run: Cannot add a string to a number
+This is because  of step 4: z=x+y
+This is an unsupported operation because of the different object types.
+x is a float
+y is a string
+Python recognizes one as a number and the other as not.
+Therefore the addition is impossible
+"""
+#%% Question 6
+
+x=3
+y=24
+z=y/x
+print (x,y,z,sep=' | ')
+
+"""
+sep changes what comes in between the objects we print.
+Here it changes the single space to a vertcal bar with spaces each side.
+The code runs and produces the following:
+3 | 24 | 8.0
+
+"""
+#%% Question 7
+
+x=3
+y='24'
+z=y/x
+print(x,z)
+
+"""
+The code does not run. This is due to step 2
+y is assigned 24, but not as an interger, as a string.
+This means that it is not registered as a number.
+therefore when moving to step 3, the arithmatic does not work.
+This is due to the differing types of x and z.
+"""
+#%% Question 8
+
+x= "I am a #string" #Whoa, a string!
+"""
+the code does not run, because:
+The first portion "I am a #string" registers as a string.
+The second portion is not in a string.
+
+"""
+#%% Question 9
+
+x=[1,2,3]
+y=[42,43]
+z= x+y
+print(z)
+
+"""
+The code runs to produce the following:
+
+[1, 2, 3, 42, 43]
+
+This is the combination of two lists
+
+"""
+#%% Question 10
+
+x=[1,2,3]
+y=42
+z=x+y
+
+"""
+This code does not run: We cannot add a number to a list.
+TypeError: can only concatenate list (not "int") to list
+The operation does not work because of the difference in type.
+"""
+#%% Question 11
+
+x1=12
+
+print(type(x1))
+
+x2=12.0
+
+print(type(x2))
+
+x3='12.0'
+
+print(type(x3))
+
+x4=[12]
+
+print(type(x4))
+
+x5=[12,12.0,'12.0']
+
+print(type(x5))
+
+"""
+Results:
+x1:  int
+x2:  float
+x3:  str
+x4:  list
+x5:  list
+
+"""
+#%% Question 12
+type(42)
+Out[43]: int
+
+type(42.0)
+Out[44]: float
+
+type('42')
+Out[45]: str
+
+"""
+The addition of quoation marks registers the 42 as a string not an integer
+"""
+
+type("42")
+Out[46]: str
+
+"""
+A single or double quotation mark makes no difference in this case
+"""
+
+type("""42.0""")
+Out[47]: str
+
+type([1,2])
+Out[48]: list
+
+type([1]+[2])
+Out[49]: list
+
+type(print)
+Out[50]: builtin_function_or_method
+
+"""
+The code does not run because 'type' identifies the object type.
+'print' is not an object. Like type it is a command.
+"""
+#%% Question 13
+
+type(float(str(int('1234'))))
+
+"""
+working inwards out:
+The first command 'int()' converts the string '1234' to an interger: 1234
+The second command 'str()' converts it back to a string
+The thrid command 'float()' converts the string into a real number: 1234.0
+therefore when asked for the type, the result is: float
+This is because is was the final command in the chain.
+"""
+#%% Question 14
+type(int(float('12.34')))
+
+"""
+Working inwards out:
+The first command 'float()' converts the string '12.34' into a real number
+resulting in: 12.34
+The second command 'int()' converts the real number to an interger
+It does so by rounding the number
+resulting in: 12
+Because this 'int()' was the final command, the result of the code is: int
+
+type(int(float('12.34'))) = integer
+
+"""
+#%% Question 15
+
+len([1234])
+
+"""
+Result: 1
+this is coded as a list of an interger.
+Within that list there is only 1 integer in it.
+"""
+len("1234")
+"""
+result: 4
+This is coded as a string.
+in that string there are 4 pieces that make up the string '1','2','3','4'
+""" 
+len(1234)
+"""
+Result: 
+Traceback (most recent call last):
+
+  File "<ipython-input-58-924e0f4453b7>", line 1, in <module>
+    len(1234)
+
+TypeError: object of type 'int' has no len()
+
+length is not defined for numbers
+
+"""
+#%%% Question 16
+
+x=[]
+
+type(x)
+print(type(x))
+
+
+len(x)
+print(len(x))
+
+
+"""
+type: list
+len: 0
+
+"""
+#%% Question 17
+
+x='abcde'
+
+list(x)
+print (list(x))
+
+"""
+Results:
+x='abcde'
+
+list(x)
+
+print (list(x))
+
+['a', 'b', 'c', 'd', 'e']
+
+"""
+#%% Question 18
+
+x=1234
+
+"""
+Part (a) Convert x to a floating point number
+"""
+float(x)
+"""
+result: 1234.0
+"""
+
+"""
+Part (b) Convert x to a string
+"""
+str(x)
+
+"""
+Result: '1234'
+"""
+
+"""
+Part (c) Covert x to the list ['1','2','3','4']
+"""
+list(str(x))
+
+"""
+Result:
+list(str(x))
+Out[85]: ['1', '2', '3', '4']
+"""
+#%% Question 19
+
+x="luke, i am your father"
+
+"""
+run code x.title()
+
+result:
+Out[102]: 'Luke, I Am Your Father'
+"""
+#%% Question 20
+
+x="How many characters and words are in this string"
+"""
+number of characters:
+run code: len(x)
+Result: 48
+
+"""
+
+"""
+Convert x to a list of individual characters
+
+Run code: list(x)
+Result:
+  ['H',
+ 'o',
+ 'w',
+ ' ',
+ 'm',
+ 'a',
+ 'n',
+ 'y',
+ ' ',
+ 'c',
+ 'h',
+ 'a',
+ 'r',
+ 'a',
+ 'c',
+ 't',
+ 'e',
+ 'r',
+ 's',
+ ' ',
+ 'a',
+ 'n',
+ 'd',
+ ' ',
+ 'w',
+ 'o',
+ 'r',
+ 'd',
+ 's',
+ ' ',
+ 'a',
+ 'r',
+ 'e',
+ ' ',
+ 'i',
+ 'n',
+ ' ',
+ 't',
+ 'h',
+ 'i',
+ 's',
+ ' ',
+ 's',
+ 't',
+ 'r',
+ 'i',
+ 'n',
+ 'g']  
+
+"""
+
+
+"""
+Convert x to a list of individual words
+
+run code: x.split()
+result:
+['How', 'many', 'characters', 'and', 'words', 'are', 'in', 'this', 'string']
+
+"""
+
+"""
+How many words does x contain?
+run code: len(x.split())
+result:9
+"""
+#%% Question 21 Estimate ~ 90 minutes
+
+
+
+
+
+
+
+
